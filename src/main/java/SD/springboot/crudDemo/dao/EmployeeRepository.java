@@ -1,6 +1,6 @@
-package com.luv2code.springboot.cruddemo.dao;
+package SD.springboot.crudDemo.dao;
 
-import com.luv2code.springboot.cruddemo.entity.Employee;
+import SD.springboot.crudDemo.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

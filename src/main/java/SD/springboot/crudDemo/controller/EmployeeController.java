@@ -1,15 +1,11 @@
-package com.luv2code.springboot.cruddemo.controller;
+package SD.springboot.crudDemo.controller;
 
-import com.luv2code.springboot.cruddemo.entity.Employee;
-import com.luv2code.springboot.cruddemo.service.EmployeeService;
+import SD.springboot.crudDemo.service.EmployeeService;
+import SD.springboot.crudDemo.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,6 +32,22 @@ public class EmployeeController {
     @PostMapping("/addNewEmployee")
     public String save(@ModelAttribute("employee") Employee theEmployee){
         employeeService.save(theEmployee);
+        return "redirect:/employee/list";
+    }
+    @GetMapping("/showFormForUpdate")
+    public String showFormForUpdate(@RequestParam("employeeId") Integer employeeId, Model theModel){
+        Employee employee = employeeService.findById(employeeId);
+        theModel.addAttribute("employee", employee);
+        return "employee/employee-form-add";
+    }
+    @PostMapping("/updateEmployee")
+    public String updateEmployee(@ModelAttribute("employee") Employee theEmployee){
+        employeeService.save(theEmployee);
+        return "redirect:/employee/list";
+    }
+    @GetMapping("/removeEmployee")
+    public String removeEmployee(@RequestParam("deleteId") Integer employeeId){
+        employeeService.deleteById(employeeId);
         return "redirect:/employee/list";
     }
 }

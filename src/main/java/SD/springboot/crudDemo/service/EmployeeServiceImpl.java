@@ -1,7 +1,7 @@
-package com.luv2code.springboot.cruddemo.service;
+package SD.springboot.crudDemo.service;
 
-import com.luv2code.springboot.cruddemo.dao.EmployeeRepository;
-import com.luv2code.springboot.cruddemo.entity.Employee;
+import SD.springboot.crudDemo.dao.EmployeeRepository;
+import SD.springboot.crudDemo.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
